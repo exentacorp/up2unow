@@ -29,12 +29,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
         with:
@@ -45,6 +39,8 @@ jobs:
 
       - name: Build with Next.js
         run: bun run build
+        env:
+          GITHUB_PAGES: 'true'
 
       - name: Add .nojekyll
         run: touch out/.nojekyll

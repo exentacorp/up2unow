@@ -5,14 +5,15 @@
   "homepage": "https://exentacorp.github.io/up2unow/",
   "scripts": {
     "dev": "next dev -p 3000 2>&1 | tee dev.log",
-    "build": "next build",
+    "build": "GITHUB_PAGES=true next build",
+    "build:local": "next build",
     "start": "next start",
     "lint": "eslint .",
     "db:push": "prisma db push",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:reset": "prisma migrate reset",
-    "export": "next build && touch out/.nojekyll"
+    "export": "GITHUB_PAGES=true next build && touch out/.nojekyll"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
